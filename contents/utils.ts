@@ -10,22 +10,10 @@ function getContentNodes(avatarDiv: Element) {
 }
 
 function createCodeBlock(code: Element) {
-  const isInlineCode = getComputedStyle(code, '::before').getPropertyValue(
-    'content'
-  )
-
   const hljsLang = Array.from(code.classList).find((className) =>
     className.includes('language')
   )
   const language = hljsLang?.split('-')?.at(-1) || ''
-
-  if (
-    isInlineCode &&
-    !language &&
-    code?.parentElement?.tagName?.toLowerCase() === 'p'
-  ) {
-    return turndownService.turndown(code.parentElement.innerHTML)
-  }
 
   const block = `\`\`\``
   // this weird formatting is because I'm too lazy to sanitize it properly
@@ -71,10 +59,11 @@ export function getConversationThread(conversationItems: Element[]) {
       let textContent = ``
 
       for (let textNode of textContentNodes) {
-        const code = textNode.querySelector('code')
+        const codeBlock = textNode.querySelector('.hljs')
 
-        textContent += code
-          ? createCodeBlock(code)
+        console.log(turndownService.turndown(textNode.outerHTML))
+        textContent += codeBlock
+          ? createCodeBlock(codeBlock)
           : turndownService.turndown(textNode.outerHTML) + '\n'
       }
       thread.push({
