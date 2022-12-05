@@ -1,8 +1,8 @@
 {
   "name": "chatgpt-saver",
-  "displayName": "Chatgpt saver",
-  "version": "0.0.0",
-  "description": "A basic Plasmo extension.",
+  "displayName": "ChatGPT Downloader",
+  "version": "1.0.0",
+  "description": "Save your ChatGPT conversations with one click.",
   "author": "rodpadev",
   "scripts": {
     "dev": "plasmo dev",
@@ -10,17 +10,28 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "luxon": "3.1.1",
+    "marked": "4.2.3",
     "plasmo": "0.59.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "turndown": "7.1.1"
   },
   "devDependencies": {
     "@plasmohq/prettier-plugin-sort-imports": "3.6.0",
+    "@tailwindcss/forms": "0.5.3",
+    "@tailwindcss/typography": "0.5.8",
     "@types/chrome": "0.0.202",
+    "@types/luxon": "3.1.0",
+    "@types/marked": "4.0.7",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "@types/turndown": "5.0.1",
+    "autoprefixer": "10.4.13",
+    "postcss": "8.4.19",
     "prettier": "2.7.1",
+    "tailwindcss": "3.2.4",
     "typescript": "4.9.3"
   },
   "manifest": {
